@@ -597,11 +597,11 @@ export async function mergeConfig(
   tauriConf.identifier = identifier;
   tauriConf.version = appVersion;
 
-  const linuxBinaryName = `pake-${generateLinuxPackageName(name)}`;
+  const linuxBinaryName = `${generateLinuxPackageName(name)}`;
   tauriConf.mainBinaryName =
     platform === 'linux'
       ? linuxBinaryName
-      : `pake-${generateIdentifierSafeName(name)}`;
+      : `${generateIdentifierSafeName(name)}`;
 
   if (platform === 'win32') {
     const windowsBundle = tauriConf.bundle.windows;

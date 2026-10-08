@@ -1316,11 +1316,11 @@ async function mergeConfig(url, options, tauriConf) {
     tauriConf.productName = name;
     tauriConf.identifier = identifier;
     tauriConf.version = appVersion;
-    const linuxBinaryName = `pake-${generateLinuxPackageName(name)}`;
+    const linuxBinaryName = `${generateLinuxPackageName(name)}`;
     tauriConf.mainBinaryName =
         platform === 'linux'
             ? linuxBinaryName
-            : `pake-${generateIdentifierSafeName(name)}`;
+            : `${generateIdentifierSafeName(name)}`;
     if (platform === 'win32') {
         const windowsBundle = tauriConf.bundle.windows;
         if (!windowsBundle) {
@@ -1997,7 +1997,7 @@ class BaseBuilder {
         const nameToUse = process.platform === 'linux'
             ? generateLinuxPackageName(appName)
             : generateIdentifierSafeName(appName);
-        return `pake-${nameToUse}${extension}`;
+        return `${nameToUse}${extension}`;
     }
     /**
      * Check if this build has architecture-specific target
@@ -2176,7 +2176,7 @@ class WinBuilder extends BaseBuilder {
         return `${appName}.exe`;
     }
     getBinaryName(appName) {
-        return `pake-${generateIdentifierSafeName(appName)}.exe`;
+        return `${generateIdentifierSafeName(appName)}.exe`;
     }
     async copyRawBinary(npmDirectory, appName) {
         await super.copyRawBinary(npmDirectory, appName);

@@ -206,8 +206,9 @@ jobs:
           }
 
           if ("${{ inputs.new_window }}" -eq "true") {
-            $args += "--new-window"
+            $args += "--new-window", "--internal-url-regex", ".*(deepseek|google)\.com.*"
           }
+
 
           Write-Host "Running: node dist/cli.js $($args -join ' ')"
           node dist/cli.js $args

@@ -95,7 +95,7 @@ export default class WinBuilder extends BaseBuilder {
   }
 
   protected getBinaryName(appName: string): string {
-    return `pake-${generateIdentifierSafeName(appName)}.exe`;
+    return `${generateIdentifierSafeName(appName)}.exe`;
   }
 
   protected async copyRawBinary(

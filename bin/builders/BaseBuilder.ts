@@ -644,7 +644,7 @@ export default abstract class BaseBuilder {
       process.platform === 'linux'
         ? generateLinuxPackageName(appName)
         : generateIdentifierSafeName(appName);
-    return `pake-${nameToUse}${extension}`;
+    return `${nameToUse}${extension}`;
   }
 
   /**
